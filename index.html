@@ -1,0 +1,81 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>TheDevStation</title>
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Title -->
+    </head>
+    <body>
+        <!-- Start Coming Soon Area -->
+        <div class="coming-soon-area">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="coming-soon-content">
+                        <h2>Coming Soon</h2>
+                        
+                        <div id="timer" class="flex-wrap d-flex justify-content-center">
+                            <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Coming Soon Area -->
+        
+        <!-- Start Go Top Area -->
+        <div class="go-top">
+            <i class="ri-arrow-up-s-fill"></i>
+            <i class="ri-arrow-up-s-fill"></i>
+        </div>
+        <!-- End Go Top Area -->
+
+
+        <!-- Jquery Min JS -->
+        <script src="assets/js/jquery.min.js"></script> 
+        <!-- Bootstrap Bundle Min JS -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Meanmenu Min JS -->
+        <script type="text/javascript">
+           // Count Time JS
+           function makeTimer() {
+            var endTime = new Date("october  31, 2023 17:00:00 PDT");          
+            var endTime = (Date.parse(endTime)) / 1000;
+            var now = new Date();
+            var now = (Date.parse(now) / 1000);
+            var timeLeft = endTime - now;
+            var days = Math.floor(timeLeft / 86400); 
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+            $("#days").html(days + "<span>Days</span>");
+            $("#hours").html(hours + "<span>Hours</span>");
+            $("#minutes").html(minutes + "<span>Minutes</span>");
+            $("#seconds").html(seconds + "<span>Seconds</span>");
+        }
+        setInterval(function() { makeTimer(); }, 300);
+    </script>
+
+</body>
+</html>
